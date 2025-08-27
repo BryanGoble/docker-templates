@@ -17,7 +17,7 @@ INFO: You can run multiple servers with only one SteadCMD directory. Be sure to 
   <Category>GameServers:</Category>
   <WebUI/>
   <TemplateURL/>
-  <Icon>https://github.com/BryanGoble/Puck-Dedicated-Server-SteamCMD/blob/main/unraid/puck-icon.jpg?raw=true</Icon>
+  <Icon>https://github.com/BryanGoble/docker-templates/blob/main/unraid/images/puck-icon.jpg?raw=true</Icon>
   <ExtraParams/>
   <PostArgs/>
   <CPUset/>
@@ -53,4 +53,5 @@ INFO: You can run multiple servers with only one SteadCMD directory. Be sure to 
   <Config Name="Start Paused" Target="START_PAUSE" Default="false" Mode="" Description="Default false. Start the match in a paused state." Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <Config Name="Sleep Timeout" Target="SLEEP_TO" Default="60" Mode="" Description="Default 60 seconds. Seconds before server enters sleep state when no players/matches are active. Server only responds to pings and player joins. Once a player joins, the server enters a WarmUp stage before being fully available." Type="Variable" Display="advanced" Required="false" Mask="false"/>
   <TailscaleStateDir/>
+
 </Container>
