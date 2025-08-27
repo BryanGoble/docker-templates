@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Puck</Name>
+  <Repository>bgubs/puck-steamcmd:latest</Repository>
+  <Registry>https://hub.docker.com/r/bgubs/puck-steamcmd</Registry>
+  <Network>host</Network>
+  <MyIP/>
+  <Shell>bash</Shell>
+  <Privileged>false</Privileged>
+  <Support></Support>
+  <Project>https://www.steampowered.com/</Project>
+  <Overview>This Dockerfile will download and install SteamCMD and the Puck Dedicated Server (PuckDS).&#xD;
+&#xD;
+ATTENTION: First startup can take a few minutes while the container updates, downloads, and installs SteamCMD and the relevant game server files.&#xD;
+&#xD;
+INFO: You can run multiple servers with only one SteadCMD directory. Be sure to modify the SERVER_DIR, GAME_PORT, and PING_PORT variable values as those can't be reused.</Overview>
+  <Category>GameServers:</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://github.com/BryanGoble/Puck-Dedicated-Server-SteamCMD/blob/main/unraid/puck-icon.jpg?raw=true</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled>1756262622</DateInstalled>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="SteamCMD" Target="/serverdata/steamcmd" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/steamcmd</Config>
+  <Config Name="ServerFiles" Target="/serverdata/serverfiles" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/puck</Config>
+  <Config Name="Server Name" Target="GAME_NAME" Default="My Puck Server" Mode="" Description="This value is how your server will appear in the server list in game." Type="Variable" Display="always" Required="true" Mask="false"/>
+  <Config Name="Server Password" Target="GAME_PASSWRD" Default="" Mode="" Description="*Not Required*. You are encouraged to set a password to prevent griefing." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Game Port" Target="GAME_PORT" Default="7777" Mode="" Description="If this port is changed from the default, be sure to update the variable 'Game Port - UDP' under the 'Show more settings...' dropdown." Type="Variable" Display="always" Required="true" Mask="false">7777</Config>
+  <Config Name="Ping Port" Target="PING_PORT" Default="7778" Mode="" Description="If this port is changed from the default, be sure to update the variable 'Ping Port - UDP' under the 'Show more settings...' dropdown." Type="Variable" Display="always" Required="true" Mask="false">7778</Config>
+  <Config Name="Max Players" Target="MAX_PLAYERS" Default="10" Mode="" Description="Default 10 players. Alter this number based on how many players you want on at a time and what your system can handle." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="VoIP" Target="VOIP" Default="false" Mode="" Description="Default false. Enables In-game Voice Chat." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Is Public?" Target="IS_PUBLIC" Default="true" Mode="" Description="Default true. Allows anyone to see and join the server." Type="Variable" Display="always" Required="false" Mask="false"/>
+  <Config Name="Admin IDs" Target="ADMIN_ID" Default="" Mode="" Description="Comma separated list of all Steam users who should be assigned an Admin role.&#13;&#10;&#13;&#10;(e.g. 76561198237436801,765611982379766802 )" Type="Variable" Display="always" Required="false" Mask="false">76561198234976801</Config>
+  <Config Name="Validate" Target="VALIDATE" Default="" Mode="" Description="Set the Variable to 'true' if you want to validate the installation otherwise leave it blank." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Steam Username" Target="USERNAME" Default="" Mode="" Description="Your Steam username goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION: You have to disable Steam Guard)." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Steam Password" Target="PASSWRD" Default="" Mode="" Description="Your Steam password goes here if you want to install a game that needs a valid account, otherwise leave it blank (ATTENTION: You have to disable Steam Guard)." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Game ID" Target="GAME_ID" Default="3481440" Mode="" Description="The GAME_ID that the container downloads at startup. (https://developer.valvesoftware.com/wiki/Dedicated_Servers_List)" Type="Variable" Display="advanced" Required="true" Mask="false">3481440</Config>
+  <Config Name="Game Port - UDP" Target="7777" Default="7777" Mode="udp" Description="" Type="Port" Display="advanced" Required="true" Mask="false">7777</Config>
+  <Config Name="Ping Port - UDP" Target="7778" Default="7778" Mode="udp" Description="" Type="Port" Display="advanced" Required="true" Mask="false">7778</Config>
+  <Config Name="Target Frame Rate" Target="TARGET_FR" Default="120" Mode="" Description="Default 120. The actual FPS the server will attempt to run at. Recommended to set this value 10-20 above Tick Rate." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Server Tick Rate" Target="SERVER_TR" Default="100" Mode="" Description="Default 100. This is essentially the " Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Client Tick Rate" Target="CLIENT_TR" Default="200" Mode="" Description="Default 200. The rate at which players clients send input updates to the server (should improve input lag). Experiment with this value for best performance. Recommend starting equal to Server Tick Rate." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Reload Banned Steam IDs" Target="RELOAD_BAN_ID" Default="false" Mode="" Description="Default false. Re-downloads global ban list on startup." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Use Puck Banned Steam IDs" Target="USE_PUCK_BAN_ID" Default="true" Mode="" Description="Default true. Use global ban list." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Print Metrics" Target="PRINT_METRIC" Default="true" Mode="" Description="Default (true). Print metrics to the console/log." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Kick Timeout" Target="KICK_TO" Default="300" Mode="" Description="Default 300 seconds. Time before player is kicked for inactivity." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Join Mid Match Delay" Target="JOIN_MM_DELAY" Default="10" Mode="" Description="Default 10 seconds. Delay in seconds before player can join existing match." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Allow Voting" Target="ALLOW_VOTE" Default="true" Mode="" Description="Default true. Enables player voting for all voting commands." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Start Paused" Target="START_PAUSE" Default="false" Mode="" Description="Default false. Start the match in a paused state." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Sleep Timeout" Target="SLEEP_TO" Default="60" Mode="" Description="Default 60 seconds. Seconds before server enters sleep state when no players/matches are active. Server only responds to pings and player joins. Once a player joins, the server enters a WarmUp stage before being fully available." Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <TailscaleStateDir/>
+</Container>
