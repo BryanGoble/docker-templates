@@ -7,7 +7,7 @@
   <MyIP/>
   <Shell>bash</Shell>
   <Privileged>false</Privileged>
-  <Support></Support>
+  <Support>https://forums.unraid.net/topic/193106-support-bgubs-game-server-dockers/</Support>
   <Project>https://www.steampowered.com/</Project>
   <Overview>This Dockerfile will download and install SteamCMD and the Puck Dedicated Server (PuckDS).&#xD;
 &#xD;
@@ -55,3 +55,4 @@ INFO: You can run multiple servers with only one SteadCMD directory. Be sure to 
   <TailscaleStateDir/>
 
 </Container>
+
